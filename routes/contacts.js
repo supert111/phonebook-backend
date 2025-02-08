@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { protect } = require("../middlewares/auth");
+const authMiddleware = require("../middlewares/auth");
 const {
   getContacts,
   addContact,
@@ -8,12 +8,12 @@ const {
 } = require("../controllers/contacts");
 
 // Отримати всі контакти
-router.get("/", protect, getContacts);
+router.get("/", authMiddleware, getContacts);
 
 // Додати новий контакт
-router.post("/", protect, addContact);
+router.post("/", authMiddleware, addContact);
 
 // Видалити контакт за ID
-router.delete("/:contactId", protect, deleteContact);
+router.delete("/:contactId", authMiddleware, deleteContact);
 
 module.exports = router;
