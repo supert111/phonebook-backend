@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRouter = require("./routes/auth");
+const contactsRouter = require("./routes/contacts");
 
 
 const app = express();
@@ -32,6 +33,7 @@ mongoose
 
 // Маршрути
 app.use("/users", authRouter);
+app.use("/contacts", contactsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
