@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 //app.use(cors());
 app.use(
   cors({
-    origin: "https://huk-goit-react-hw-09-phonebook.netlify.app",
+    origin: ['http://localhost:3000', "https://huk-goit-react-hw-09-phonebook.netlify.app"],
     credentials: true,
   })
 );
